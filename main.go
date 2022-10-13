@@ -13,9 +13,20 @@ func main() {
 	matrix1 := populateRandomValues(n)
 	matrix2 := populateRandomValues(n)
 
-	fmt.Println(len(matrix1) + len(matrix2))
+	result := multiplyMatrices(matrix1, matrix2)
+
+	fmt.Printf("Length: %v\n", len(matrix1))
+
+	fmt.Printf("Result: \n %v \n", result)
 
 	fmt.Printf("Time elapsed: %v", time.Since(start))
+}
+
+func multiplyMatrices(matrix1 [][]int, matrix2 [][]int) [][]int {
+
+	result := make([][]int, len(matrix1))
+
+	return result
 }
 
 func populateRandomValues(size int) [][]int {
