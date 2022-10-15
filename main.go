@@ -8,7 +8,7 @@ import (
 
 func main() {
 	start := time.Now()
-	const n = 100
+	const n = 3
 
 	matrix1 := populateRandomValues(n)
 	matrix2 := populateRandomValues(n)
@@ -16,6 +16,9 @@ func main() {
 	result := multiplyMatrices(matrix1, matrix2)
 
 	fmt.Printf("Length: %v\n", len(matrix1))
+
+	fmt.Printf("M1: %v\n", matrix1)
+	fmt.Printf("M2: %v\n", matrix2)
 
 	fmt.Printf("Result: \n %v \n", result)
 
@@ -25,6 +28,20 @@ func main() {
 func multiplyMatrices(matrix1 [][]int, matrix2 [][]int) [][]int {
 
 	result := make([][]int, len(matrix1))
+
+	for k := 0; k < len(matrix1); k++ {
+		for f := 0; f < len(matrix1); f++ {
+			sum := 0
+
+			for i := 0; i < len(matrix1); i++ {
+				for j := 0; j < len(matrix2); j++ {
+					sum = sum + matrix1[k][i]*matrix2[j][f]
+				}
+			}
+
+			result[k] = append(result[k], sum)
+		}
+	}
 
 	return result
 }
